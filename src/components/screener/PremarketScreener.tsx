@@ -92,6 +92,8 @@ export default function PremarketScreener() {
                 const data = marketData[symbol];
                 if (!data) return null;
 
+                const gapPercent = data.lastClose !== 0 ? ((data.premarketPrice - data.lastClose) / data.lastClose) * 100 : 0;
+
                 return (
                   <AccordionItem value={symbol} key={symbol}>
                     <AccordionTrigger>
@@ -100,8 +102,8 @@ export default function PremarketScreener() {
                         <div role="cell" className="w-24 text-right">${formatNumber(data.lastClose)}</div>
                         <div role="cell" className="w-24 text-right">${formatNumber(data.premarketPrice)}</div>
                         <div role="cell" className="w-24 text-right">
-                          <Badge variant={getGapBadgeVariant(data.gapPercent)} className="min-w-[60px] justify-center">
-                            {data.gapPercent > 0 ? '+' : ''}{formatNumber(data.gapPercent)}%
+                          <Badge variant={getGapBadgeVariant(gapPercent)} className="min-w-[60px] justify-center">
+                            {gapPercent > 0 ? '+' : ''}{formatNumber(gapPercent)}%
                           </Badge>
                         </div>
                         <div role="cell" className="w-24 text-right">{formatVolume(data.premarketVolume)}</div>
