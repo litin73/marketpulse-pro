@@ -7,7 +7,7 @@ export default function Home() {
     <div className="flex-1 space-y-4 p-4 pt-6 md:p-8">
       <div className="flex items-center justify-between space-y-2">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight">Welcome back Migue!</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
           <p className="text-muted-foreground">
             Here&apos;s what&apos;s happening in the market today.
           </p>
