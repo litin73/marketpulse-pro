@@ -156,7 +156,7 @@ export const getMockHistoricalData = (symbol: string): HistoricalData[] => {
   const startDate = new Date();
   startDate.setDate(endDate.getDate() - 90); // 90 days of data
 
-  let currentDate = startDate;
+  const currentDate = startDate;
   let lastClose = Math.random() * 500 + 50; // Start with a random price
 
   while (currentDate <= endDate) {
